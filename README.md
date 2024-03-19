@@ -33,7 +33,7 @@ A documentação do projeto é composta pelos seguintes itens:
  - [(A criar) Quadro de tarefas]() 
 
 #### Tarefa 1:
- - [Diagrama de classe do projeto v1](/docs/Tarefa+1/Classe%20UML%20-%20Projeto%20Comidinhas%20Veganas%20-%20Tarefa%201.jpg)
+ - [Diagrama de classe do projeto v1](/docs/Tarefa%20%3A1/Classe%20UML%20-%20Projeto%20Comidinhas%20Veganas%20-%20Tarefa%201.jpg)
 
 ##
 ### Mais informações
