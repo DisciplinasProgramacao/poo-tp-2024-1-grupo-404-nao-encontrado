@@ -10,13 +10,6 @@
 > [!NOTE] 
 > Ainda procuramos adicionar novos integrantes ao grupo.
 
-##
-### Tarefa 1:
-
-
-Criar o diagrama de classes UML com a modelagem das classes (atributos, métodos e relacionamentos)
-propostas para resolver o problema.
-
 
 ##
 ### Documentação do Projeto
@@ -31,7 +24,7 @@ A documentação do projeto é composta pelos seguintes itens:
  - [Link do diagrama UML editável no LucidChart](https://lucid.app/lucidchart/94972848-58fa-4b03-bff7-dd0a87cd62c6/edit?viewport_loc=-1023%2C181%2C6217%2C3057%2CHWEp-vi-RSFO&invitationId=inv_e6cc9689-d5f0-4115-aee7-e96d97c7c4e5)
 
 #### Tarefa 1:
- - [Enunciado da tarefa no Canvas](https://pucminas.instructure.com/courses/188291/files/10877020?module_item_id=4179648) 
+[Enunciado da tarefa no Canvas](https://pucminas.instructure.com/courses/188291/files/10877020?module_item_id=4179648) 
 
 Entregar até 21/03:
 - [x] Arquivo readme.md preenchido no repositório do grupo no GitHub Classroom (este arquivo);
