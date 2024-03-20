@@ -19,7 +19,7 @@
 A documentação do projeto é composta pelos seguintes itens: 
 
 #### Permanentes:
- - [(A preencher com o código) Instruções para uso](/docs/instrucoes.md)
+ - [Instruções para uso](/docs/instrucoes.md) (A preencher com o código)
  - [Quadro de tarefas](/docs/Quadro%20de%20Tarefas.md)
  - [Link do diagrama UML editável no LucidChart](https://lucid.app/lucidchart/94972848-58fa-4b03-bff7-dd0a87cd62c6/edit?viewport_loc=-1023%2C181%2C6217%2C3057%2CHWEp-vi-RSFO&invitationId=inv_e6cc9689-d5f0-4115-aee7-e96d97c7c4e5)
 
