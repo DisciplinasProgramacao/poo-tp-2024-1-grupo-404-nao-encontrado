@@ -5,6 +5,9 @@
 
 * Vitor Balbino de Castro
 * Luísa Ferreira
+* Diego Santos
+* Lucas Santos
+* Luíz
   
 <!-- Remover quando o grupo fechar -->
 > [!NOTE] 
