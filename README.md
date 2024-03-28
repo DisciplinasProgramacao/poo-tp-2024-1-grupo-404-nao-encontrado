@@ -5,7 +5,7 @@
 
 * Vitor Balbino de Castro
 * Luísa Ferreira
-* Diego Santos
+* Diego Aguiar
 * Lucas Santos
 * Luíz
   
