@@ -33,6 +33,12 @@ Entregar até 21/03:
 - [x] Arquivo readme.md preenchido no repositório do grupo no GitHub Classroom (este arquivo);
 - [x] Diagrama de classes contendo atributos, métodos e relacionamentos ([Diagrama de classe do projeto v1](/docs/Tarefa%201/Classe%20UML%20-%20Projeto%20Comidinhas%20Veganas%20-%20Tarefa%201.jpeg));
 
+#### Tarefa 2:
+[Enunciado da tarefa no Canvas](https://pucminas.instructure.com/courses/188291/files/11099855?module_item_id=4240815) 
+
+Entregar até 01/04:
+- [x] Diagrama de classes atualizado com os novos requisitos ([Diagrama de classe do projeto v2]);
+
 ##
 ### Mais informações
 Disciplina: Programação orientada por objetos (POO).
