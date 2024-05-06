@@ -43,5 +43,10 @@ namespace Restaurante
             // Retorna verdadeiro se a mesa não está ocupada e se a quantidade de pessoas não excede a capacidade
             return !_estaOcupada && qntPessoas <= _capacidade;
         }
+
+        public string DescricaoOcupacao()
+        {
+            return _estaOcupada ? "Ocupada" : "vazia";
+        }
     }
 }
