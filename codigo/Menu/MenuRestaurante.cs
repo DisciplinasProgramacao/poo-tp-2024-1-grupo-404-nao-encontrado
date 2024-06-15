@@ -4,29 +4,24 @@ using System.Runtime.InteropServices;
 using System.Text;
 using static Cardapio;
 
-public class MenuRestaurante : MenuBase {
-
+public class MenuRestaurante : MenuBase
+{
     Restaurante _restaurante;
 
-    public MenuRestaurante(Restaurante restaurante) {
-
+    public MenuRestaurante(Restaurante restaurante)
+    {
         _restaurante = restaurante;
-
     }
 
+    //________________________________________
 
-
-    #region Inicio
-
-    public override void Menu_Inicio() {
-
-        // Início do programa
+    public override void Menu_Inicio()
+    {
         string NomeRestaurante = "Restaurante - Comidinhas Veganas";
-
         int option = -1;
 
-        while (option != 0) {
-
+        while (option != 0)
+        {
             ResetConsole(NomeRestaurante);
 
             "Escolha uma opção:"._();
@@ -40,8 +35,8 @@ public class MenuRestaurante : MenuBase {
 
             option = ReadInt();
 
-            switch (option) {
-
+            switch (option)
+            {
                 case 0:
                     continue; // Encerra o loop
 
@@ -66,29 +61,14 @@ public class MenuRestaurante : MenuBase {
                     "Opção inválida."._();
                     WaitForUserInput();
                     break;
-
             }
-
         }
-
-
-        // Fim do programa
-
-        ResetConsole(NomeRestaurante += "0 - Encerrar");
-
-        "Fim - Obrigado."._();
-        WaitForUserInput();
-
     }
 
-    #endregion
+    //________________________________________
 
-
-
-    #region Cadastrar Cliente
-
-    private void Menu_CadastrarCliente(string path) {
-
+    private void Menu_CadastrarCliente(string path)
+    {
         path += "/ Cadastro de cliente";
 
         ResetConsole(path);
@@ -102,20 +82,16 @@ public class MenuRestaurante : MenuBase {
         $"Cliente {nome} cadastrado."._();
 
         Menu_OpcoesCliente(path, ref cliente);
-
     }
 
-    #endregion
+    //________________________________________
 
-
-
-    #region Menu Cliente
-
-    private void Menu_EncontrarCliente(string path) {
-
+    private void Menu_EncontrarCliente(string path)
+    {
         path += "/ Cliente";
 
-        if (_restaurante.GetTotalClientes() == 0) {
+        if (_restaurante.GetTotalClientes() == 0)
+        {
             "Nenhum cliente cadastrado."._();
 
             WaitForUserInput();
@@ -124,47 +100,42 @@ public class MenuRestaurante : MenuBase {
         }
 
         int IndiceVoltar = 0;
-
         int min = 0;
         int max = _restaurante.GetTotalClientes();
-
         string[] arrayDescricao = _restaurante.ArrayDescricaoClientes();
 
         ResetConsole(path);
 
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < arrayDescricao.Length; i++) {
+        for (int i = 0; i < arrayDescricao.Length; i++)
+        {
             if (i != 0)
                 sb.Append("\n");
             sb.Append($"{(i + 1).ToString("D2")} - {arrayDescricao[i]}");
         }
 
         "Lista de Clientes:"._();
-
         sb.ToString()._();
-
         $"0 - Voltar"._();
-
         $"Escolha um cliente pelo índice, ou 0 para voltar: (min {min}, max {max})"._();
-        int indiceOpcao = ReadIntRange(min, max);
 
-        if (indiceOpcao == IndiceVoltar) {
+        int indiceOpcao = ReadIntRange(min, max);
+        if (indiceOpcao == IndiceVoltar)
+        {
             return;
         }
 
         Cliente cliente = _restaurante.GetClientePorIndice(indiceOpcao - 1);
         Menu_OpcoesCliente(path, ref cliente);
-
     }
 
-
-    private void Menu_OpcoesCliente(string path, ref Cliente cliente) {
-
+    private void Menu_OpcoesCliente(string path, ref Cliente cliente)
+    {
         int option = -1;
 
-        while (option != 0) {
-
+        while (option != 0)
+        {
             ResetConsole(path);
 
             ("Cliente: " + cliente.GetNome())._();
@@ -178,7 +149,8 @@ public class MenuRestaurante : MenuBase {
 
             option = ReadInt();
 
-            switch (option) {
+            switch (option)
+            {
 
                 case 0:
                     continue; // Encerra o loop
@@ -196,21 +168,14 @@ public class MenuRestaurante : MenuBase {
                     "Opção inválida."._();
                     WaitForUserInput();
                     break;
-
             }
-
         }
-
     }
 
-    #endregion
+    //________________________________________
 
-
-
-    #region Menu Requisições
-
-    private void Menu_NovaRequisicao(string path, ref Cliente cliente) {
-
+    private void Menu_NovaRequisicao(string path, ref Cliente cliente)
+    {
         path += "/ Nova requisição";
 
         ResetConsole(path);
@@ -226,80 +191,67 @@ public class MenuRestaurante : MenuBase {
         "Requisição criada. Consulte a fila das mesas no menu principal para ocupar uma mesa."._();
 
         WaitForUserInput();
-
     }
 
-    #endregion
+    //________________________________________
 
-
-
-    #region Menu_Ocupacoes
-
-    private void Menu_Ocupacoes(string path) {
-
+    private void Menu_Ocupacoes(string path)
+    {
         path += " / Mesas";
 
         int indexVoltar = 0;
         int indiceMax = _restaurante.GetTotalMesas();
-
         int indiceOpcao = -1;
 
-        while (indiceOpcao != indexVoltar) {
-
+        while (indiceOpcao != indexVoltar)
+        {
             bool indiceMesaEValido = false;
 
-            while (!indiceMesaEValido) {
-
+            while (!indiceMesaEValido)
+            {
                 ResetConsole(path);
 
                 _restaurante.TentarOcuparMesasVazias();
-
                 $"0 - Lista de Mesas"._();
-
                 _restaurante.ListaMesas()._();
-
                 $"0 - Voltar"._();
-
                 $"Escolha uma mesa ocupada pelo índice, ou 0 para voltar:"._();
                 indiceOpcao = ReadIntRange(0, indiceMax);
 
-                if (indiceOpcao == indexVoltar) {
+                if (indiceOpcao == indexVoltar)
+                {
                     break;
                 }
 
                 Mesa mesa = _restaurante.GetMesaPorIndice(indiceOpcao - 1);
 
-                if (mesa.GetEstaOcupada()) {
-
+                if (mesa.GetEstaOcupada())
+                {
                     _restaurante.TryGetUltimaRequisicaoPorMesa(mesa, out Requisicao? requisicao);
-                    
-                    if (requisicao != null) {
+
+                    if (requisicao != null)
+                    {
                         Menu_OcupacaoAberta(path, ref requisicao);
                         indiceMesaEValido = true;
                     }
-
                 }
-                else {
-
+                else
+                {
                     "Mesa não está ocupada."._();
                     WaitForUserInput();
-
                 }
-
             }
         }
-
     }
 
-
-    private void Menu_OcupacaoAberta(string path, ref Requisicao requisicao) {
-
+    private void Menu_OcupacaoAberta(string path, ref Requisicao requisicao)
+    {
         path += "";
 
         int option = -1;
 
-        while (option != 0) {
-
+        while (option != 0)
+        {
             ResetConsole(path);
 
             "Escolha uma opção:"._();
@@ -312,8 +264,8 @@ public class MenuRestaurante : MenuBase {
 
             option = ReadInt();
 
-            switch (option) {
-
+            switch (option)
+            {
                 case 0:
                     continue; // Encerra o loop
 
@@ -336,37 +288,26 @@ public class MenuRestaurante : MenuBase {
                     "Opção inválida."._();
                     WaitForUserInput();
                     break;
-
             }
-
         }
-
     }
 
-
-    private void Menu_FecharOcupacao(string path, ref Requisicao requisicao) {
-
+    private void Menu_FecharOcupacao(string path, ref Requisicao requisicao)
+    {
         requisicao.EncerrarOcupacao();
-
         "Ocupação encerrada"._();
-
         requisicao.getRelatorioConta()._();
-
         WaitForUserInput();
-
     }
 
-    #endregion
+    //________________________________________
 
-
-
-    #region Menu_Pedidos
-
-    private void Menu_OpcoesCardapio(string path, ref Requisicao requisicao) {
-
+    private void Menu_OpcoesCardapio(string path, ref Requisicao requisicao)
+    {
         path += "/ Pedido";
 
-        if (_restaurante.GetTotalItensCardapio() == 0) {
+        if (_restaurante.GetTotalItensCardapio() == 0)
+        {
             "Nenhum item cadastrado no cardápio."._();
 
             WaitForUserInput();
@@ -376,7 +317,8 @@ public class MenuRestaurante : MenuBase {
 
         int option = -1;
 
-        while (option != 0) {
+        while (option != 0)
+        {
 
             ResetConsole(path);
 
@@ -389,7 +331,8 @@ public class MenuRestaurante : MenuBase {
 
             option = ReadInt();
 
-            switch (option) {
+            switch (option)
+            {
 
                 case 0:
                     continue; // Encerra o loop
@@ -406,19 +349,16 @@ public class MenuRestaurante : MenuBase {
                     "Opção inválida."._();
                     WaitForUserInput();
                     break;
-
             }
-
         }
-
     }
 
-
-    private void Menu_PedirPrato(string path, ref Requisicao requisicao) {
-
+    private void Menu_PedirPrato(string path, ref Requisicao requisicao)
+    {
         path += " / Pratos";
 
-        if (_restaurante.GetTotalComidasCardapio() == 0) {
+        if (_restaurante.GetTotalComidasCardapio() == 0)
+        {
             "Nenhum item cadastrado no cardápio."._();
 
             WaitForUserInput();
@@ -439,7 +379,8 @@ public class MenuRestaurante : MenuBase {
         $"Escolha um prato pelo índice, ou {IndiceVoltar} para voltar: (min {min}, max {max})"._();
         int indiceOpcao = ReadIntRange(min, max);
 
-        if (indiceOpcao == IndiceVoltar) {
+        if (indiceOpcao == IndiceVoltar)
+        {
             return;
         }
 
@@ -453,15 +394,14 @@ public class MenuRestaurante : MenuBase {
         $"{quantidadeOpcao} prato(s) {comida.GetNome()} adicionado(s) ao pedido."._();
 
         WaitForUserInput();
-
     }
 
-
-    private void Menu_PedirBebida(string path, ref Requisicao requisicao) {
-
+    private void Menu_PedirBebida(string path, ref Requisicao requisicao)
+    {
         path += " / Bebidas";
 
-        if (_restaurante.GetTotalBebidasCardapio() == 0) {
+        if (_restaurante.GetTotalBebidasCardapio() == 0)
+        {
             "Nenhum item cadastrado no cardápio."._();
 
             WaitForUserInput();
@@ -483,7 +423,8 @@ public class MenuRestaurante : MenuBase {
         int indiceOpcao = ReadIntRange(min, max);
 
 
-        if (indiceOpcao == IndiceVoltar) {
+        if (indiceOpcao == IndiceVoltar)
+        {
             return;
         }
 
@@ -497,27 +438,19 @@ public class MenuRestaurante : MenuBase {
         $"{quantidadeOpcao} bebida(s) {bebida.GetNome()} adicionada(s) ao pedido."._();
 
         WaitForUserInput();
-
     }
 
-    #endregion
-
-
-
-    // --
-
-
+    //________________________________________
 
     #region Modelo de exemplo
 
-    private void Menu_Model(string path) {
-
+    private void Menu_Model(string path)
+    {
         path += "";
-
         int option = -1;
 
-        while (option != 0) {
-
+        while (option != 0)
+        {
             ResetConsole(path);
 
             "Escolha uma opção:"._();
@@ -529,7 +462,8 @@ public class MenuRestaurante : MenuBase {
 
             option = ReadInt();
 
-            switch (option) {
+            switch (option)
+            {
 
                 case 0:
                     continue; // Encerra o loop
@@ -546,15 +480,10 @@ public class MenuRestaurante : MenuBase {
                     "Opção inválida."._();
                     WaitForUserInput();
                     break;
-
             }
-
         }
-
     }
 
     #endregion
-
-
 
 }

@@ -3,209 +3,176 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-public abstract class MenuBase {
-
+public abstract class MenuBase
+{
     protected Path _path = new Path("Sistema teste");
 
     // private NumberStyles styles = NumberStyles.Number; // any
     private CultureInfo culture = CultureInfo.CurrentCulture; // invariant
 
+    //________________________________________
 
-
-    #region Path_Class
-
-    protected class Path {
-
+    protected class Path
+    {
         string _title;
-
         List<string> _pathList = new List<string>();
 
-
-        public Path(string title) {
+        public Path(string title)
+        {
             this._title = title;
         }
 
-
-        public void Include(string path) {
+        public void Include(string path)
+        {
             _pathList.Add(path);
         }
 
-
-        public void Remove(string path) {
-
-            for (int i = _pathList.Count - 1; i > -1; i--) {
-                if (_pathList[i] == path) {
+        public void Remove(string path)
+        {
+            for (int i = _pathList.Count - 1; i > -1; i--)
+            {
+                if (_pathList[i] == path)
+                {
                     _pathList.RemoveRange(i, _pathList.Count - i);
                     break;
                 }
-
             }
-
         }
 
-
-        public void Restart(string firstPath = "") {
-
+        public void Restart(string firstPath = "")
+        {
             _pathList.Clear();
 
             _pathList.Add(firstPath);
-
         }
 
-
-        public void Print() {
-
+        public void Print()
+        {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(_title).AppendLine(":\n");
 
-            if (_pathList.Count == 0) {
+            if (_pathList.Count == 0)
+            {
                 Console.WriteLine(stringBuilder.ToString());
                 return;
             }
 
-            for (int i = 0; i < _pathList.Count; i++) {
+            for (int i = 0; i < _pathList.Count; i++)
+            {
                 stringBuilder.Append(_pathList[i]);
 
-                if (i < _pathList.Count - 1) {
+                if (i < _pathList.Count - 1)
+                {
                     stringBuilder.Append(" / ");
                 }
             }
 
             Console.WriteLine(stringBuilder.Append("\n").ToString());
-
         }
 
-
-        internal void SetTitle(string newTitle) {
+        public void SetTitle(string newTitle)
+        {
             _title = newTitle;
         }
-
-
     }
 
-    #endregion
+    //________________________________________
 
-
-
-    #region Console_Helpers
-
-    protected void Clear() {
+    protected void Clear()
+    {
         Console.Clear();
     }
 
-
-    /// <summary>
-    /// interrompe a execução do método para aguardar um input do usuário.
-    /// </summary>
-    protected void WaitForUserInput() {
+    /// <summary>  interrompe a execução do método para aguardar um input do usuário.  </summary>
+    protected void WaitForUserInput()
+    {
         "Tecle para continuar..."._();
         ReadKey();
     }
 
-
-    /// <summary>
-    /// Limpa a tela de console e imprime o caminho dos menus, a título de organização e testes.
-    /// </summary>
+    /// <summary> Limpa a tela de console e imprime o caminho dos menus, a título de organização e testes.  </summary>
     /// <param name="path">Caminho dos menus</param>
-    protected void ResetConsole(string path) {
+    protected void ResetConsole(string path)
+    {
         Clear();
         path._();
     }
 
-    #endregion
+    //________________________________________
 
-
-
-    #region Read_Helpers
-
-    protected void _(string s = "") {
+    protected void _(string s = "")
+    {
         Console.WriteLine(s);
     }
 
-
-    protected string Read() {
-        
+    protected string Read()
+    {
         Console.Write("=> ");
-
         string line = Console.ReadLine() ?? "";
-
         Console.WriteLine();
-
         return line;
-
     }
 
-
-    protected int ReadInt() {
-
+    protected int ReadInt()
+    {
         string line = Read();
-
         int number;
 
-        while (!int.TryParse(line, out number)) {
+        while (!int.TryParse(line, out number))
+        {
             "Por favor, insira um número inteiro válido: "._();
             line = Read();
         }
 
         return number;
-
     }
 
-
-    protected int ReadIntRange(int minInclusive, int maxInclusive = int.MaxValue) {
-
+    protected int ReadIntRange(int minInclusive, int maxInclusive = int.MaxValue)
+    {
         int inteiroLido = ReadInt();
 
-        while (inteiroLido < minInclusive || inteiroLido > maxInclusive) {
-
+        while (inteiroLido < minInclusive || inteiroLido > maxInclusive)
+        {
             $"valor deve estar entre {minInclusive} e {maxInclusive}"._();
 
             inteiroLido = ReadInt();
-
         }
 
         return inteiroLido;
-
     }
 
-
-    protected decimal ReadDecimal() {
-
+    protected decimal ReadDecimal()
+    {
         string line = Read();
-
         decimal number;
 
-        while (!Decimal.TryParse(line, NumberStyles.Number, CultureInfo.CurrentCulture, out number)) {
+        while (!Decimal.TryParse(line, NumberStyles.Number, CultureInfo.CurrentCulture, out number))
+        {
             _("\nPor favor, insira um número decimal válido: ");
             line = Read();
         }
 
         return number;
-
     }
 
-
-    protected ConsoleKeyInfo ReadKey() {
+    protected ConsoleKeyInfo ReadKey()
+    {
         return Console.ReadKey();
     }
 
-
-    protected virtual void AvisoImplementar() {
+    protected virtual void AvisoImplementar()
+    {
         "Método a ser implementado."._();
         WaitForUserInput();
     }
 
-    #endregion
-
-
-
-    #region Exemplos_Menus
+    //________________________________________
 
     /// <summary>
     /// Exemplo de início do Menu.
     /// </summary>
-    public virtual void Menu_Inicio() {
-
+    public virtual void Menu_Inicio()
+    {
         string path = "[Título]";
 
         Menu_Model(path);
@@ -214,21 +181,20 @@ public abstract class MenuBase {
 
         "Fim - Obrigado."._();
         WaitForUserInput();
-
     }
 
+    //________________________________________
 
     /// <summary>
     /// Exemplo de menu após início.
     /// </summary>
-    private void Menu_Model(string path) {
-
+    private void Menu_Model(string path)
+    {
         path += "";
-
         int option = -1;
 
-        while (option != 0) {
-
+        while (option != 0)
+        {
             ResetConsole(path);
 
             "Escolha uma opção:"._();
@@ -240,8 +206,8 @@ public abstract class MenuBase {
 
             option = ReadInt();
 
-            switch (option) {
-
+            switch (option)
+            {
                 case 0:
                     continue;
 
@@ -257,16 +223,7 @@ public abstract class MenuBase {
                     "Opção inválida."._();
                     WaitForUserInput();
                     break;
-
             }
-
         }
-
-
     }
-
-    #endregion
-
-
-
 }
