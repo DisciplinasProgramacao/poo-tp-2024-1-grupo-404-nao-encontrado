@@ -1,0 +1,14 @@
+C:\Users\User\source\repos\POO - TP 2024.01 - ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\bin\Debug\net8.0\POO_TrabGrupo_ComidinhasVeganas.exe
+C:\Users\User\source\repos\POO - TP 2024.01 - ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\bin\Debug\net8.0\POO_TrabGrupo_ComidinhasVeganas.deps.json
+C:\Users\User\source\repos\POO - TP 2024.01 - ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\bin\Debug\net8.0\POO_TrabGrupo_ComidinhasVeganas.runtimeconfig.json
+C:\Users\User\source\repos\POO - TP 2024.01 - ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\bin\Debug\net8.0\POO_TrabGrupo_ComidinhasVeganas.dll
+C:\Users\User\source\repos\POO - TP 2024.01 - ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\bin\Debug\net8.0\POO_TrabGrupo_ComidinhasVeganas.pdb
+C:\Users\User\source\repos\POO - TP 2024.01 - ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\obj\Debug\net8.0\POO_TrabGrupo_ComidinhasVeganas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\POO - TP 2024.01 - ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\obj\Debug\net8.0\POO_TrabGrupo_ComidinhasVeganas.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\POO - TP 2024.01 - ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\obj\Debug\net8.0\POO_TrabGrupo_ComidinhasVeganas.AssemblyInfo.cs
+C:\Users\User\source\repos\POO - TP 2024.01 - ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\obj\Debug\net8.0\POO_TrabGrupo_ComidinhasVeganas.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\POO - TP 2024.01 - ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\obj\Debug\net8.0\POO_TrabGrupo_ComidinhasVeganas.dll
+C:\Users\User\source\repos\POO - TP 2024.01 - ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\obj\Debug\net8.0\refint\POO_TrabGrupo_ComidinhasVeganas.dll
+C:\Users\User\source\repos\POO - TP 2024.01 - ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\obj\Debug\net8.0\POO_TrabGrupo_ComidinhasVeganas.pdb
+C:\Users\User\source\repos\POO - TP 2024.01 - ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\obj\Debug\net8.0\POO_TrabGrupo_ComidinhasVeganas.genruntimeconfig.cache
+C:\Users\User\source\repos\POO - TP 2024.01 - ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\POO_TrabGrupo_ComidinhasVeganas\obj\Debug\net8.0\ref\POO_TrabGrupo_ComidinhasVeganas.dll
