@@ -45,7 +45,7 @@ Entregar até 01/05:
 [Enunciado da tarefa no Canvas](https://pucminas.instructure.com/courses/188291/files/11509336?module_item_id=4339669) 
 
 Entregar:
-- [x] Diagrama de classes atualizado com os novos requisitos ([Diagrama de classe do projeto v2](docs/Tarefa%202/Classe%20UML%20-%20Projeto%20Comidinhas%20Veganas%20-%20Tarefa%202%20v01.jpeg));
+- [x] Diagrama de classes atualizado com os novos requisitos ([Diagrama de classe do projeto v3](docs/Tarefa%203/Classe%20UML%20-%20Projeto%20Comidinhas%20Veganas%20-%20Tarefa%203%20v01.jpeg));
 - [X] Implementação das classes correspondentes e ajustes/correções no código já existente;
 - [X] Modificação do processo e do sistema principal para contemplar o requisito do café.
 
