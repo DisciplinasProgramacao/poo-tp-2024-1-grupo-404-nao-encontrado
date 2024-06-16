@@ -366,7 +366,7 @@ public class MenuRestaurante : MenuBase
             return;
         }
 
-        int IndiceVoltar = _restaurante.GetTotalComidasCardapio();
+        int IndiceVoltar = 0;
 
         int min = 0;
         int max = _restaurante.GetTotalComidasCardapio();
@@ -409,7 +409,7 @@ public class MenuRestaurante : MenuBase
             return;
         }
 
-        int IndiceVoltar = _restaurante.GetTotalBebidasCardapio();
+        int IndiceVoltar = 0;
 
         int min = 0;
         int max = _restaurante.GetTotalBebidasCardapio();
