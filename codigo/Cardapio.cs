@@ -5,192 +5,125 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class Cardapio {
-
-
-    #region Classes
-
-    public interface IItem {
-
+public class Cardapio
+{
+    public interface IItem
+    {
         public string GetNome();
 
         public float GetPreco();
-
-
     }
 
-
-    public class Comida : IItem {
-
+    public class Comida : IItem
+    {
         string _nome;
-
         float _preco;
 
-
-        public Comida(string nome, float preco) {
-            
+        public Comida(string nome, float preco)
+        {
             _nome = nome;
             _preco = preco;
-
         }
 
-
-        public string GetNome() {
-
+        public string GetNome()
+        {
             return _nome;
-
         }
 
-
-        public float GetPreco() {
-
+        public float GetPreco()
+        {
             return _preco;
-
         }
-
-
     }
 
-
-    public class Bebida : IItem {
-
+    public class Bebida : IItem
+    {
         string _nome;
-
         float _preco;
 
-
-        public Bebida(string nome, float preco) {
-
+        public Bebida(string nome, float preco)
+        {
             _nome = nome;
             _preco = preco;
-
         }
 
-
-        public string GetNome() {
-
+        public string GetNome()
+        {
             return _nome;
-
         }
 
 
-        public float GetPreco() {
-
+        public float GetPreco()
+        {
             return _preco;
-
         }
-
-
     }
 
-
-    #endregion
-
-
+    //________________________________________
 
     List<Comida> _listaComidas = new List<Comida>();
-
     List<Bebida> _listaBebidas = new List<Bebida>();
 
+    //________________________________________
 
-
-    public Cardapio() { }
-
-
-
-    #region Add and Get
-
-    public Cardapio AddComida(in string nome, in float preco) {
-
+    public Cardapio AddComida(in string nome, in float preco)
+    {
         _listaComidas.Add(new Comida(nome, preco));
-
         return this;
-
     }
 
-
-    public Cardapio AddBebida(in string nome, in float preco) {
-
+    public Cardapio AddBebida(in string nome, in float preco)
+    {
         _listaBebidas.Add(new Bebida(nome, preco));
-
         return this;
-
     }
 
-
-    public Comida GetComidaPorIndice(int indice) {
-
+    public Comida GetComidaPorIndice(int indice)
+    {
         return _listaComidas[indice];
-
     }
 
-
-    public Bebida GetBebidaPorIndice(int indice) {
-
+    public Bebida GetBebidaPorIndice(int indice)
+    {
         return _listaBebidas[indice];
-
     }
 
+    //________________________________________
 
-    #endregion
-
-
-
-    #region Relatorios
-
-
-    string RelatorioListaItens(in List<IItem> lista) {
-
+    string RelatorioListaItens(in List<IItem> lista)
+    {
         StringBuilder sBuilder = new StringBuilder();
 
-        for (int i = 0; i < _listaBebidas.Count; i++) {
-
+        for (int i = 0; i < lista.Count; i++)
+        {
             sBuilder.Append($"{i + 1} - {lista[i].GetNome()}\n");
-
         }
 
         return sBuilder.ToString();
-
     }
 
-
-    public string RelatorioListaComidas() {
-
+    public string RelatorioListaComidas()
+    {
         return RelatorioListaItens(_listaComidas.ToList<IItem>());
-
     }
 
-
-    public string RelatorioListaBebidas() {
-
+    public string RelatorioListaBebidas()
+    {
         return RelatorioListaItens(_listaBebidas.ToList<IItem>());
-
     }
 
-
-    public int getTotalComidas() {
-
+    public int getTotalComidas()
+    {
         return _listaComidas.Count;
-
     }
 
-
-    public int getTotalBebidas() {
-
+    public int getTotalBebidas()
+    {
         return _listaBebidas.Count;
-
     }
 
-
-    public int getTotalItens() {
-
+    public int getTotalItens()
+    {
         return getTotalComidas() + getTotalBebidas();
-
     }
-
-
-    #endregion
-
-
-
 }
