@@ -6,52 +6,37 @@ using System.Threading.Tasks;
 
 public class Cafe
 {
-    List<Cliente> _listaClientes = new List<Cliente>();
+    List<Cliente> _clientes = new List<Cliente>();
 
     Cardapio _cardapio = new Cardapio();
 
-    Dictionary<Cliente, List<Ocupacao>> OcupacaoPorCliente = new Dictionary<Cliente, List<Ocupacao>>();
+    Dictionary<Cliente, List<Ocupacao>> _ocupacaoPorCliente = new Dictionary<Cliente, List<Ocupacao>>();
 
     //________________________________________
 
     public Cliente GerarNovoCliente(string nome)
     {
         Cliente cliente = new Cliente(nome);
-        _listaClientes.Add(cliente);
+        _clientes.Add(cliente);
 
-        OcupacaoPorCliente.Add(cliente, new List<Ocupacao>());
+        _ocupacaoPorCliente.Add(cliente, new List<Ocupacao>());
 
         return cliente;
     }
 
     public IEnumerable<Cliente> EnctorarClientesComNome(string nome)
     {
-        return  _listaClientes.Where(c => (c.GetNome() == nome));
+        return  _clientes.Where(c => (c.GetNome() == nome));
     }
     
-    public bool TentarApagarCliente(Cliente cliente)
-    {
-        if (!_listaClientes.Contains(cliente))
-        {
-            // Client doesn't exist on system
-            
-            return false;
-        }
-
-        _listaClientes.Remove(cliente);
-        OcupacaoPorCliente.Remove(cliente);
-
-        return true;
-    }
-
     public int GetTotalClientes()
     {
-        return _listaClientes.Count();
+        return _clientes.Count();
     }
 
     public Cliente GetClientePorIndice(int indice)
     {
-        return _listaClientes[indice];
+        return _clientes[indice];
     }
 
     public string RelatorioCliente(Cliente cliente, bool imprimirContas)
@@ -65,7 +50,7 @@ public class Cafe
 
         if (imprimirContas)
         {
-            List<Ocupacao> ocupacao = OcupacaoPorCliente[cliente];
+            List<Ocupacao> ocupacao = _ocupacaoPorCliente[cliente];
 
             for (int i = 0; i < ocupacao.Count; i++)
             {
@@ -82,11 +67,11 @@ public class Cafe
 
     public string[] ArrayDescricaoClientes()
     {
-        string[] arrayDescricao = new string[_listaClientes.Count];
+        string[] arrayDescricao = new string[_clientes.Count];
 
-        for (int i = 0; i < _listaClientes.Count; i++)
+        for (int i = 0; i < _clientes.Count; i++)
         {
-            arrayDescricao[i] += _listaClientes[i].GetNome();
+            arrayDescricao[i] += _clientes[i].GetNome();
         }
 
         return arrayDescricao;
@@ -138,18 +123,18 @@ public class Cafe
 
     public bool HaOcupacoesPara(ref Cliente cliente)
     {
-        return OcupacaoPorCliente[cliente].LastOrDefault() != null;
+        return _ocupacaoPorCliente[cliente].LastOrDefault() != null;
     }
 
     public void AddPedidoAConta(Cliente cliente, string PedidoDescr, float valor)
     {
-        Ocupacao ultimaOcupacao = OcupacaoPorCliente[cliente].LastOrDefault();
+        Ocupacao ultimaOcupacao = _ocupacaoPorCliente[cliente].LastOrDefault();
 
         if (ultimaOcupacao ==  null || ultimaOcupacao.Fechado)
         {
             ultimaOcupacao = new Ocupacao();
 
-            OcupacaoPorCliente[cliente].Add(ultimaOcupacao);
+            _ocupacaoPorCliente[cliente].Add(ultimaOcupacao);
         }
 
         ultimaOcupacao.Conta.IncluirPedido(PedidoDescr, valor);
@@ -157,12 +142,12 @@ public class Cafe
 
     public void EncerrarOcupacao(Cliente cliente)
     {
-        OcupacaoPorCliente[cliente].LastOrDefault().Fechado = true;
+        _ocupacaoPorCliente[cliente].LastOrDefault().Fechado = true;
     }
 
     public string getRelatorioConta(Cliente cliente)
     {
-        return OcupacaoPorCliente[cliente].Last().Conta.Relatorio();
+        return _ocupacaoPorCliente[cliente].Last().Conta.Relatorio();
     }
 
 }
